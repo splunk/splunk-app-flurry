@@ -115,24 +115,24 @@ def parse_params(params):
     # Process intermediate elements (not ends)
     params_flat = []
     params_flat.append(params_split[0])
-    for i in xrange(1, len(params_split)-1):
+    for i in xrange(1, len(params_split) - 1):
         param_split = params_split[i].rsplit(',', 1)
         if len(param_split) != 2:
             raise Exception('Could not parse intermediate parameter fragment: %s' % repr(param_split))
         params_flat.extend(param_split)
     params_flat.append(params_split[-1])
     
-    if len(params_flat)%2 != 0:
+    if len(params_flat) % 2 != 0:
         raise Exception('Expected even number of keys and values: %s' % repr(params_flat))
     
     params = []
     for i in xrange(0, len(params_flat), 2):
-        params.append((params_flat[i], params_flat[i+1]))
+        params.append((params_flat[i], params_flat[i + 1]))
     
-    params = [(k.decode('utf-8'), v.decode('utf-8')) for (k,v) in params]
+    params = [(k.decode('utf-8'), v.decode('utf-8')) for (k, v) in params]
     # (unescape() expects Unicode strings)
     params = [(UNESCAPER.unescape(k), UNESCAPER.unescape(v)) for (k, v) in params]
-    params = [(k.encode('utf-8'), v.encode('utf-8')) for (k,v) in params]
+    params = [(k.encode('utf-8'), v.encode('utf-8')) for (k, v) in params]
     
     return params
 
