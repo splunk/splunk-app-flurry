@@ -1,8 +1,7 @@
 """
 Scripted input that downloads event logs from the Flurry service.
 
-External dependencies:
-* mechanize
+Author: David Foster (davidfstr)
 """
 
 import csv
