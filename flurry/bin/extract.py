@@ -285,22 +285,13 @@ while True:
                 int(config.get('extract_position', 'month')),
                 int(config.get('extract_position', 'day')))
             
-            # TODO: Make this test less brittle.
-            #       As is, events near midnight are likely to be lost,
-            #       particularly if Splunk's and Flurry's clocks are out of sync.
-            if cur_date < date.today():
-                next_date = cur_date + timedelta(days=1)
-                
-                config.set('extract_position', 'year', str(next_date.year))
-                config.set('extract_position', 'month', str(next_date.month))
-                config.set('extract_position', 'day', str(next_date.day))
-                config.set('extract_position', 'offset', str(0))
-                config_flush()
-            else:
-                # No more events to extract
-                # Must wait for more events to be logged
-                log.write('  All events extracted.\r\n')
-                break
+            next_date = cur_date + timedelta(days=1)
+            
+            config.set('extract_position', 'year', str(next_date.year))
+            config.set('extract_position', 'month', str(next_date.month))
+            config.set('extract_position', 'day', str(next_date.day))
+            config.set('extract_position', 'offset', str(0))
+            config_flush()
     finally:
         flurry_csv_stream.close()
     
