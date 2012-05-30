@@ -28,7 +28,7 @@ import re
 import sys
 from time import sleep
 
-CONFIG_RELATIVE_FILEPATH = '../local/extract.conf'
+CONFIG_RELATIVE_FILEPATH = os.path.join('..', 'local', 'extract.conf')
 CONFIG_KEYS_NEEDING_REPLACEMENT = (
     ('auth', ('email', 'password', 'project_id')),
     ('extract_position', ('year', 'month', 'day'))
