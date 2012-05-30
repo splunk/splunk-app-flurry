@@ -55,3 +55,5 @@ If you log OS information in events, you can use:
 
 This software is licensed under the Apache License 2.0.
 Details can be found in the file LICENSE.
+
+This software includes [Mechanize](http://wwwsearch.sourceforge.net/mechanize/) as a source dependency, which is used under the [BSD License](http://www.opensource.org/licenses/bsd-license.php).
