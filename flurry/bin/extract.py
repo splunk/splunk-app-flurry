@@ -21,6 +21,7 @@ from ConfigParser import ConfigParser
 from ConfigParser import Error as ConfigError
 from datetime import date, timedelta
 from HTMLParser import HTMLParser
+import logging
 import mechanize
 import os
 import os.path
@@ -156,23 +157,18 @@ def quote_k(k):
 def quote_v(v):
     return '"' + v.replace('"', "'") + '"'
 
-class devnull(object):
-    def write(self, value):
-        pass
-    
-    def flush(self):
-        pass
-
-output = (
-    sys.stdout
-    #devnull()
-)
-log = (
-    #sys.stderr
-    devnull()
-)
+def setup_logger():
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter('[%(levelname)s] %(message)s'))
+    logging.root.addHandler(handler)
+    return logging.root
 
 # -----------------------------------------------------------------------------
+
+output = sys.stdout
+
+log = setup_logger()
+log.setLevel(logging.WARNING)   # for more messages, set to: logging.INFO
 
 config = ConfigParser()
 config.read(CONFIG_FILEPATH)
@@ -204,7 +200,7 @@ while True:
     # day's events.
     cur_date = date(year, month, day)
     if cur_date >= date.today():
-        log.write('  All events extracted up to yesterday.\r\n')
+        log.info('All events extracted up to yesterday.')
         break
     
     if not did_login:
@@ -216,16 +212,16 @@ while True:
         did_login = True
     
     try:
-        log.write('Downloading: %04d-%02d-%02d @ %d\r\n' % (year, month, day, offset))
+        log.info('Downloading: %04d-%02d-%02d @ %d', year, month, day, offset)
         flurry_csv_stream = conn.download_log(year, month, day, offset)
     except RateLimitedError:
         if rate_limited_on_last_request:
             # Abort temporarily
-            log.write('  Rate limited twice. Giving up.\r\n')
+            log.warning('Rate limited twice. Giving up.')
             break
         
         delay = float(config.get('rate_limiting', 'delay_per_overlimit'))
-        log.write('  Rate limited. Retrying in %s seconds(s).\r\n' % delay)
+        log.info('Rate limited. Retrying in %s seconds(s).', delay)
         sleep(delay)
         
         conn.login()
@@ -238,7 +234,7 @@ while True:
     try:
         flurry_csv = csv.reader(flurry_csv_stream)
         
-        col_names = flurry_csv.next()   # ignore column headers
+        col_names = flurry_csv.next()
         col_names = [col.strip() for col in col_names]  # strip whitespace
         expected_col_names = [
             'Timestamp', 'Session Index', 'Event', 'Description', 'Version',
