@@ -43,12 +43,11 @@ class RateLimitedError(Exception):
 class FlurryConnection(object):
     def __init__(self, email, password, project_id):
         """
-        Arguments:
-        email -- email used to login.
-        password -- password used to login.
-        project_id -- identifier for the application, obtained from the URL
-                      of the analytics dashboard page after logging in with
-                      a real web browser.
+        :param email: email used to login.
+        :param password: password used to login.
+        :param project_id: identifier for the application, obtained from the
+                           URL of the analytics dashboard page after logging in
+                           with a real web browser.
         """
         self.email = email
         self.password = password
@@ -57,10 +56,11 @@ class FlurryConnection(object):
     def login(self):
         """
         Logs in to Flurry.
-        This should be invoked before any other methods.
         
-        Raises:
-        Exception -- if login fails for any reason.
+        This should be invoked before any other methods.
+        Repeated invocations will create a new login session.
+        
+        :raises Exception: if login fails for any reason.
         """
         self.browser = mechanize.Browser()
         self.browser.open('https://dev.flurry.com/secure/login.do')
@@ -87,16 +87,14 @@ class FlurryConnection(object):
         If the page does not exist, the returned CSV will not have any data
         rows. However it will contain an initial header row.
         
-        Arguments:
-        yyyy -- year.
-        mm -- month (1 = January, 12 = December).
-        dd -- day.
-        offset -- index of the first session that will be returned.
+        :param yyyy: year.
+        :param mm: month (1 = January, 12 = December).
+        :param dd: day.
+        :param offset: index of the first session that will be returned.
         
-        Raises:
-        RateLimitedError -- if Flurry denies access due to too many requests in
-                            a short time frame.
-        Exception -- if the download fails for any other reason.
+        :raises RateLimitedError: if Flurry denies access due to too many
+                                  requests in a short time frame.
+        :raises Exception: if the download fails for any other reason.
         """
         url = ('https://dev.flurry.com/eventsLogCsv.do?projectID=%d&' + 
             'versionCut=versionsAll&intervalCut=customInterval' + 
