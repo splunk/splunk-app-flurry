@@ -32,23 +32,23 @@ This input permits the use of Splunk's advanced data analysis capabilities on Fl
 The following searches are installed by default:
 
 * **Activity by Time of Day**:
-  `sourcetype="flurry" | eval hour=strftime(_time, "%H") | stats count by hour | sort +hour`
+  `index=flurry | stats count by date_hour | sort +date_hour`
 
 * **Activity by Day of Week**:
-  `sourcetype="flurry" | eval weekday=strftime(_time, "%w") | stats count by weekday | sort +weekday`
+  `index=flurry | eval weekday=strftime(_time, "%w") | stats count, values(date_wday) as weekday_name by weekday | sort +weekday | table weekday_name, count`
 
 * **Top Users**:
-  `sourcetype="flurry" Session_Index=1 | stats count by User_ID | sort -count`
+  `index=flurry Session_Index=1 | top User_ID`
 
 If you log location information in events, you can use, in combination with the [Google Maps](http://splunk-base.splunk.com/apps/22365/google-maps) add-on:
 
 * **Activity by Location**:
-  `sourcetype=flurry EVENT_NAME__UserLocation=* | eval _geo=EVENT_NAME__UserLocation`
+  `index=flurry EVENT_NAME__UserLocation=* | eval _geo=EVENT_NAME__UserLocation`
 
 If you log OS information in events, you can use:
 
 * **Activity by OS Version**:
-  `sourcetype=flurry EVENT_NAME__SystemVersion=* | stats count by EVENT_NAME__SystemVersion | sort +EVENT_NAME__SystemVersion`
+  `index=flurry EVENT_NAME__SystemVersion=* | stats count by EVENT_NAME__SystemVersion | sort +EVENT_NAME__SystemVersion`
 
 
 ## License
