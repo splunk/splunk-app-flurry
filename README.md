@@ -18,7 +18,7 @@ This input permits the use of Splunk's advanced data analysis capabilities on Fl
   * `extract_position/offset`: Set this to 0.
   * `extract_position/session`: Set this to 0. This is used to generate an ID for each downloaded session.
 
-* Enable the scripted input `$SPLUNK_HOME/etc/apps/flurry/local/extract.conf`.
+* Enable the scripted input `$SPLUNK_HOME/etc/apps/flurry/bin/extract.py`.
 
 * Wait 20 seconds or so for the new scripted input to extract the first couple of events.
 
