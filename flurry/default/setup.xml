@@ -1,0 +1,89 @@
+<setup>
+    <block title="Welcome to the Flurry App">
+        <text><![CDATA[
+To start indexing Flurry event logs:<br/>
+<strong>
+1. Provide Flurry credentials below.<br/>
+2. For the "Extraction Position", enter the earliest date containing events you wish to download.
+3. Enable the Flurry scripted input below.<br/>
+</strong>
+        ]]></text>
+    </block>
+    
+    <block title="Edit Flurry Account Info" endpoint="configs/conf-extract" entity="auth">
+        <input field="email">
+            <label>Email</label>
+            <type>text</type>
+        </input>
+        <input field="password">
+            <label>Password</label>
+            <type>password</type>
+        </input>
+        <input field="project_id">
+            <label>Project ID**</label>
+            <type>text</type>
+        </input>
+    </block>
+    <block title="">
+        <text><![CDATA[
+<span style="color: blue;">
+** The Project ID can be obtained by logging in to the Flurry dashboard, clicking
+the name of the application you wish to monitor, and examining the dashboard's
+URL. It should look something like:
+<tt>https://dev.flurry.com/customDashboard.do?<b>projectID=<u>12345</u></b>&dashboardId=22</tt>
+</span>
+        ]]></text>
+    </block>
+    
+    <block title="Edit Extraction Position" endpoint="configs/conf-extract" entity="extract_position">
+        <input field="year">
+            <label>Year (YYYY)</label>
+            <type>text</type>
+        </input>
+        <input field="month">
+            <label>Month (MM)</label>
+            <type>text</type>
+        </input>
+        <input field="day">
+            <label>Day (DD)</label>
+            <type>text</type>
+        </input>
+        <input field="offset">
+            <label>Offset**</label>
+            <type>text</type>
+        </input>
+        <input field="session">
+            <label>Next Session ID [Advanced]</label>
+            <type>text</type>
+        </input>
+    </block>
+    <block title="">
+        <text><![CDATA[
+<span style="color: blue;">
+** When changing the Day, also set the Offset to 0.
+</span>
+        ]]></text>
+    </block>
+    
+    <block title="Edit Rate Limiting Delays [Advanced]" endpoint="configs/conf-extract" entity="rate_limiting">
+        <input field="delay_per_request">
+            <label>Delay Between Requests (seconds)</label>
+            <type>text</type>
+        </input>
+        <input field="delay_per_overlimit">
+            <label>Delay After "Rate Limited" Warning (seconds)</label>
+            <type>text</type>
+        </input>
+    </block>
+    
+    <block title="Enable Flurry Input" endpoint="data/inputs/script" entity=".%252Fbin%252Fextract.py">
+        <input field="interval">
+            <label>Restart Interval (sec)</label>
+            <type>text</type>
+        </input>
+        <input field="enabled">
+            <label>Enable</label>
+            <type>bool</type>
+        </input>
+    </block>
+</setup>
