@@ -9,6 +9,8 @@ This input permits the use of Splunk's advanced data analysis capabilities on Fl
 
 * Install the app by copying the `flurry` directory to `$SPLUNK_HOME/etc/apps/flurry`.
 
+* Copy `$SPLUNK_HOME/etc/apps/flurry/default/extract.conf` to `$SPLUNK_HOME/etc/apps/flurry/local/extract.conf`.
+
 * Fill in the appropriate configuration parameters in `$SPLUNK_HOME/etc/apps/flurry/local/extract.conf`:
 
   * `auth/{email,password}`: The credentials to login to the Flurry dashboard.
