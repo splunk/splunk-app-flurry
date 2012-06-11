@@ -183,9 +183,9 @@ class SplunkConfigFile(object):
     def set(self, stanza, key, value):
         self._stanzas[stanza].content[key] = value
     
-    def flush(self):
-        for stanza in self._stanzas.values():
-            stanza.update(**stanza.content)
+    def flush(self, stanza):
+        stanza = self._stanzas[stanza]
+        stanza.update(**stanza.content)
 
 # -----------------------------------------------------------------------------
 
@@ -306,7 +306,7 @@ while True:
             next_offset = cur_offset + num_sessions_read
             
             config.set('extract_position', 'offset', str(next_offset))
-            config.flush()
+            config.flush('extract_position')
         else:
             # All events on the current day have been read
             
@@ -321,7 +321,7 @@ while True:
             config.set('extract_position', 'month', str(next_date.month))
             config.set('extract_position', 'day', str(next_date.day))
             config.set('extract_position', 'offset', str(0))
-            config.flush()
+            config.flush('extract_position')
     finally:
         flurry_csv_stream.close()
     
