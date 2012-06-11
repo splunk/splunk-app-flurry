@@ -17,26 +17,24 @@
 """A scripted input that downloads event logs from the Flurry service."""
 
 import csv
-from ConfigParser import ConfigParser
-from ConfigParser import Error as ConfigError
 from datetime import date, timedelta
 from HTMLParser import HTMLParser
 import logging
 import mechanize
-import os
-import os.path
 import re
+import splunk
+import splunklib.client
 import sys
 from time import sleep
 
-CONFIG_RELATIVE_FILEPATH = os.path.join('..', 'local', 'extract.conf')
+CONFIG_FILENAME = 'extract'
 CONFIG_KEYS_NEEDING_REPLACEMENT = (
     ('auth', ('email', 'password', 'project_id')),
     ('extract_position', ('year', 'month', 'day'))
 )
 
-SCRIPT_DIR = os.path.dirname(os.path.join(os.getcwd(), __file__))
-CONFIG_FILEPATH = os.path.join(SCRIPT_DIR, CONFIG_RELATIVE_FILEPATH)
+class ConfigError(Exception):
+    pass
 
 class RateLimitedError(Exception):
     pass
@@ -163,6 +161,32 @@ def setup_logger():
     logging.root.addHandler(handler)
     return logging.root
 
+class SplunkConfigFile(object):
+    def __init__(self, owner, namespace, conf_name, session_key):
+        # NOTE: Requires 'develop' version of splunklib past 0.8.0
+        #       for 'token' parameter to be honored.
+        service = splunklib.client.Service(
+            host=splunk.getDefault('host'),
+            port=splunk.getDefault('port'),
+            scheme=splunk.getDefault('protocol'),
+            owner=owner,
+            app=namespace,
+            token='Splunk %s' % session_key)
+        
+        self._stanzas = {}
+        for stanza in service.confs[conf_name]:
+            self._stanzas[stanza.name] = stanza
+    
+    def get(self, stanza, key):
+        return self._stanzas[stanza].content[key]
+    
+    def set(self, stanza, key, value):
+        self._stanzas[stanza].content[key] = value
+    
+    def flush(self, stanza):
+        stanza = self._stanzas[stanza]
+        stanza.update(**stanza.content)
+
 # -----------------------------------------------------------------------------
 
 output = sys.stdout
@@ -170,20 +194,21 @@ output = sys.stdout
 log = setup_logger()
 log.setLevel(logging.WARNING)   # for more messages, set to: logging.INFO
 
-config = ConfigParser()
-config.read(CONFIG_FILEPATH)
+# Read session key from splunkd
+session_key = sys.stdin.readline().strip()
+if len(session_key) == 0:
+    sys.stderr.write('Did not receive a session key from splunkd. Please enable passAuth in inputs.conf for this script\n')
+    exit(1)
 
-def config_flush():
-    with open(CONFIG_FILEPATH, 'wb') as config_stream:
-        config.write(config_stream)
+config = SplunkConfigFile('nobody', 'flurry', CONFIG_FILENAME, session_key)
 
 # Ensure configuration looks valid
 for (section, keys) in CONFIG_KEYS_NEEDING_REPLACEMENT:
     for key in keys:
         value = config.get(section, key)
         if value.startswith('__') and value.endswith('__'):
-            raise ConfigError('Missing configuration value %s/%s in %s' %
-                (section, key, CONFIG_FILEPATH))
+            raise ConfigError('Missing configuration value %s/%s in %s.conf' %
+                (section, key, CONFIG_FILENAME))
 
 did_login = False
 rate_limited_on_last_request = False
@@ -281,7 +306,7 @@ while True:
             next_offset = cur_offset + num_sessions_read
             
             config.set('extract_position', 'offset', str(next_offset))
-            config_flush()
+            config.flush('extract_position')
         else:
             # All events on the current day have been read
             
@@ -296,7 +321,7 @@ while True:
             config.set('extract_position', 'month', str(next_date.month))
             config.set('extract_position', 'day', str(next_date.day))
             config.set('extract_position', 'offset', str(0))
-            config_flush()
+            config.flush('extract_position')
     finally:
         flurry_csv_stream.close()
     

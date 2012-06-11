@@ -9,18 +9,13 @@ This input permits the use of Splunk's advanced data analysis capabilities on Fl
 
 * Install the app by copying the `flurry` directory to `$SPLUNK_HOME/etc/apps/flurry`.
 
-* Fill in the appropriate configuration parameters in `$SPLUNK_HOME/etc/apps/flurry/local/extract.conf`:
+* (Re)start Splunk so that the app is recognized.
 
-  * `auth/{email,password}`: The credentials to login to the Flurry dashboard.
-  * `auth/project_id`: Obtain this by logging in to the Flurry dashboard, clicking the name of the application you wish to monitor, and examining the dashboard's URL. It should look something like: https://dev.flurry.com/customDashboard.do?<b>projectID=<u>12345</u></b>&dashboardId=22
-  * `rate_limiting/*`: Generally these parameters can be left alone.
-  * `extract_position/{year,month,day}`: Set this to the earliest date containing events you wish to download.
-  * `extract_position/offset`: Set this to 0.
-  * `extract_position/session`: Set this to 0. This is used to generate an ID for each downloaded session.
+* In the Splunk web interface, from the App menu, select the Flurry app. And press "Continue to app setup page".
 
-* Enable the scripted input `$SPLUNK_HOME/etc/apps/flurry/bin/extract.py`.
+* Input your Flurry credentials and the earliest date containing events you wish to download. Enable the Flurry input. Click "Save".
 
-* Wait 20 seconds or so for the new scripted input to extract the first couple of events.
+* Wait 15 seconds or so for the new scripted input to extract the first couple of events.
 
 * Run a test search `index=flurry` to see the events.
 
