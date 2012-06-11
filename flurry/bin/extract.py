@@ -22,7 +22,8 @@ from HTMLParser import HTMLParser
 import logging
 import mechanize
 import re
-import splunk.entity
+import splunk
+import splunklib.client
 import sys
 from time import sleep
 
@@ -162,22 +163,29 @@ def setup_logger():
 
 class SplunkConfigFile(object):
     def __init__(self, owner, namespace, conf_name, session_key):
-        self._config = splunk.entity.getEntities(
-            'configs/conf-%s' % conf_name,
+        # NOTE: Requires 'develop' version of splunklib past 0.8.0
+        #       for 'token' parameter to be honored.
+        service = splunklib.client.Service(
+            host=splunk.getDefault('host'),
+            port=splunk.getDefault('port'),
+            scheme=splunk.getDefault('protocol'),
             owner=owner,
-            namespace=namespace,
-            sessionKey=session_key)
-        self._session_key = session_key
+            app=namespace,
+            token='Splunk %s' % session_key)
+        
+        self._stanzas = {}
+        for stanza in service.confs[conf_name]:
+            self._stanzas[stanza.name] = stanza
     
     def get(self, stanza, key):
-        return self._config[stanza][key]
+        return self._stanzas[stanza].content[key]
     
     def set(self, stanza, key, value):
-        self._config[stanza][key] = value
+        self._stanzas[stanza].content[key] = value
     
     def flush(self):
-        for entity in self._config.values():
-            splunk.entity.setEntity(entity, sessionKey=self._session_key)
+        for stanza in self._stanzas.values():
+            stanza.update(**stanza.content)
 
 # -----------------------------------------------------------------------------
 
