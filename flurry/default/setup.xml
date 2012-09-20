@@ -76,7 +76,20 @@ URL. It should look something like:
         </input>
     </block>
     
-    <block title="Enable Flurry Input" endpoint="data/inputs/script" entity=".%252Fbin%252Fextract.py">
+    <!-- (OS X, Linux) -->
+    <block title="Enable Flurry Input" endpoint="data/inputs/script" enabled="in-unix" entity=".%252Fbin%252Fextract.py">
+        <input field="interval">
+            <label>Restart Interval (sec)</label>
+            <type>text</type>
+        </input>
+        <input field="enabled">
+            <label>Enable</label>
+            <type>bool</type>
+        </input>
+    </block>
+    
+    <!-- (Windows) -->
+    <block title="Enable Flurry Input" endpoint="data/inputs/script" enabled="in-windows" entity=".%5Cbin%5Cextract.py">
         <input field="interval">
             <label>Restart Interval (sec)</label>
             <type>text</type>
