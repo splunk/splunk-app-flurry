@@ -1,0 +1,297 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'cover' ]
+2 info using npm@1.1.59
+3 info using node@v0.8.8
+4 verbose read json /usr/local/lib/package.json
+5 verbose read json /usr/local/lib/package.json
+6 verbose cache add [ 'cover', null ]
+7 silly cache add name=undefined spec="cover" args=["cover",null]
+8 verbose parsed url { pathname: 'cover', path: 'cover', href: 'cover' }
+9 silly lockFile a28100fa-cover cover
+10 verbose lock cover /Users/dfoster/.npm/a28100fa-cover.lock
+11 silly lockFile a28100fa-cover cover
+12 verbose addNamed [ 'cover', '' ]
+13 verbose addNamed [ null, '' ]
+14 silly lockFile 952b803a-cover cover@
+15 verbose lock cover@ /Users/dfoster/.npm/952b803a-cover.lock
+16 silly addNameRange { name: 'cover', range: '', hasData: false }
+17 verbose url raw cover
+18 verbose url resolving [ 'https://registry.npmjs.org/', './cover' ]
+19 verbose url resolved https://registry.npmjs.org/cover
+20 info retry registry request attempt 1 at 14:16:05
+21 http GET https://registry.npmjs.org/cover
+22 http 200 https://registry.npmjs.org/cover
+23 silly registry.get cb [ 200,
+23 silly registry.get   { vary: 'Accept',
+23 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+23 silly registry.get     etag: '"19BEVCI6BU9AASGCPF2OIBGGS"',
+23 silly registry.get     date: 'Fri, 21 Sep 2012 21:16:06 GMT',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     'content-length': '13193' } ]
+24 silly addNameRange number 2 { name: 'cover', range: '', hasData: true }
+25 silly addNameRange versions [ 'cover',
+25 silly addNameRange   [ '0.0.1',
+25 silly addNameRange     '0.0.2',
+25 silly addNameRange     '0.1.0',
+25 silly addNameRange     '0.2.0',
+25 silly addNameRange     '0.2.1',
+25 silly addNameRange     '0.2.2',
+25 silly addNameRange     '0.2.3',
+25 silly addNameRange     '0.2.4',
+25 silly addNameRange     '0.2.5',
+25 silly addNameRange     '0.2.6',
+25 silly addNameRange     '0.2.7',
+25 silly addNameRange     '0.2.8' ] ]
+26 verbose addNamed [ 'cover', '0.2.8' ]
+27 verbose addNamed [ '0.2.8', '0.2.8' ]
+28 silly lockFile 13328808-cover-0-2-8 cover@0.2.8
+29 verbose lock cover@0.2.8 /Users/dfoster/.npm/13328808-cover-0-2-8.lock
+30 silly lockFile 292f6449--npmjs-org-cover-cover-0-2-8-tgz https://registry.npmjs.org/cover/-/cover-0.2.8.tgz
+31 verbose lock https://registry.npmjs.org/cover/-/cover-0.2.8.tgz /Users/dfoster/.npm/292f6449--npmjs-org-cover-cover-0-2-8-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/cover/-/cover-0.2.8.tgz',
+32 verbose addRemoteTarball   '91946a9806e992f98d374cecd642fce9b96f5237' ]
+33 info retry fetch attempt 1 at 14:16:06
+34 verbose fetch to= /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/tmp.tgz
+35 http GET https://registry.npmjs.org/cover/-/cover-0.2.8.tgz
+36 http 200 https://registry.npmjs.org/cover/-/cover-0.2.8.tgz
+37 silly shasum updated bytes 40960
+38 silly shasum updated bytes 40960
+39 silly shasum updated bytes 32730
+40 info shasum 91946a9806e992f98d374cecd642fce9b96f5237
+40 info shasum /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/tmp.tgz
+41 verbose tar unpack /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/tmp.tgz
+42 silly lockFile 4da8dcdb-6916-0-18062561703845859-package /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package
+43 verbose lock /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package /Users/dfoster/.npm/4da8dcdb-6916-0-18062561703845859-package.lock
+44 silly gunzTarPerm modes [ '777', '666' ]
+45 silly gunzTarPerm extractEntry .npmignore
+46 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+47 silly gunzTarPerm extractEntry bar.js
+48 silly gunzTarPerm modified mode [ 'bar.js', 420, 438 ]
+49 silly gunzTarPerm extractEntry bin/
+50 silly gunzTarPerm modified mode [ 'bin/', 493, 511 ]
+51 silly gunzTarPerm extractEntry bin/.coverrc
+52 silly gunzTarPerm modified mode [ 'bin/.coverrc', 420, 438 ]
+53 silly gunzTarPerm extractEntry bin/cover
+54 silly gunzTarPerm modified mode [ 'bin/cover', 493, 511 ]
+55 silly gunzTarPerm extractEntry contrib/
+56 silly gunzTarPerm modified mode [ 'contrib/', 493, 511 ]
+57 silly gunzTarPerm extractEntry contrib/cli-table/
+58 silly gunzTarPerm modified mode [ 'contrib/cli-table/', 493, 511 ]
+59 silly gunzTarPerm extractEntry contrib/cli-table/index.js
+60 silly gunzTarPerm modified mode [ 'contrib/cli-table/index.js', 420, 438 ]
+61 silly gunzTarPerm extractEntry contrib/cli-table/lib/
+62 silly gunzTarPerm modified mode [ 'contrib/cli-table/lib/', 493, 511 ]
+63 silly gunzTarPerm extractEntry contrib/cli-table/lib/cli-table/
+64 silly gunzTarPerm modified mode [ 'contrib/cli-table/lib/cli-table/', 493, 511 ]
+65 silly gunzTarPerm extractEntry contrib/cli-table/lib/cli-table/index.js
+66 silly gunzTarPerm modified mode [ 'contrib/cli-table/lib/cli-table/index.js', 420, 438 ]
+67 silly gunzTarPerm extractEntry contrib/cli-table/lib/cli-table/utils.js
+68 silly gunzTarPerm modified mode [ 'contrib/cli-table/lib/cli-table/utils.js', 420, 438 ]
+69 silly gunzTarPerm extractEntry contrib/cli-table/README.md
+70 silly gunzTarPerm modified mode [ 'contrib/cli-table/README.md', 420, 438 ]
+71 silly gunzTarPerm extractEntry contrib/colors.js
+72 silly gunzTarPerm modified mode [ 'contrib/colors.js', 420, 438 ]
+73 silly gunzTarPerm extractEntry contrib/commander.js
+74 silly gunzTarPerm modified mode [ 'contrib/commander.js', 420, 438 ]
+75 silly gunzTarPerm extractEntry contrib/escodegen.js
+76 silly gunzTarPerm modified mode [ 'contrib/escodegen.js', 420, 438 ]
+77 silly gunzTarPerm extractEntry contrib/esprima.js
+78 silly gunzTarPerm modified mode [ 'contrib/esprima.js', 420, 438 ]
+79 silly gunzTarPerm extractEntry coverage_store.js
+80 silly gunzTarPerm modified mode [ 'coverage_store.js', 420, 438 ]
+81 silly gunzTarPerm extractEntry foo.js
+82 silly gunzTarPerm modified mode [ 'foo.js', 420, 438 ]
+83 silly gunzTarPerm extractEntry index.js
+84 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+85 silly gunzTarPerm extractEntry instrument.js
+86 silly gunzTarPerm modified mode [ 'instrument.js', 420, 438 ]
+87 silly gunzTarPerm extractEntry package.json
+88 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+89 silly gunzTarPerm extractEntry README.markdown
+90 silly gunzTarPerm modified mode [ 'README.markdown', 420, 438 ]
+91 silly gunzTarPerm extractEntry reporters/
+92 silly gunzTarPerm modified mode [ 'reporters/', 493, 511 ]
+93 silly gunzTarPerm extractEntry reporters/cli.js
+94 silly gunzTarPerm modified mode [ 'reporters/cli.js', 420, 438 ]
+95 silly gunzTarPerm extractEntry reporters/html.js
+96 silly gunzTarPerm modified mode [ 'reporters/html.js', 420, 438 ]
+97 silly gunzTarPerm extractEntry reporters/json.js
+98 silly gunzTarPerm modified mode [ 'reporters/json.js', 420, 438 ]
+99 silly gunzTarPerm extractEntry reporters/plain.js
+100 silly gunzTarPerm modified mode [ 'reporters/plain.js', 420, 438 ]
+101 silly gunzTarPerm extractEntry resources/
+102 silly gunzTarPerm modified mode [ 'resources/', 493, 511 ]
+103 silly gunzTarPerm extractEntry resources/bootstrap.css
+104 silly gunzTarPerm modified mode [ 'resources/bootstrap.css', 420, 438 ]
+105 silly gunzTarPerm extractEntry resources/jquery.min.js
+106 silly gunzTarPerm modified mode [ 'resources/jquery.min.js', 420, 438 ]
+107 silly gunzTarPerm extractEntry resources/jquery.tablesorter.min.js
+108 silly gunzTarPerm modified mode [ 'resources/jquery.tablesorter.min.js', 420, 438 ]
+109 silly gunzTarPerm extractEntry resources/prettify.css
+110 silly gunzTarPerm modified mode [ 'resources/prettify.css', 420, 438 ]
+111 silly gunzTarPerm extractEntry resources/prettify.js
+112 silly gunzTarPerm modified mode [ 'resources/prettify.js', 420, 438 ]
+113 silly gunzTarPerm extractEntry templates/
+114 silly gunzTarPerm modified mode [ 'templates/', 493, 511 ]
+115 silly gunzTarPerm extractEntry templates/file.html
+116 silly gunzTarPerm modified mode [ 'templates/file.html', 420, 438 ]
+117 silly gunzTarPerm extractEntry templates/index.html
+118 silly gunzTarPerm modified mode [ 'templates/index.html', 420, 438 ]
+119 silly gunzTarPerm extractEntry templates/instrumentation_header.js
+120 silly gunzTarPerm modified mode [ 'templates/instrumentation_header.js', 420, 438 ]
+121 silly gunzTarPerm extractEntry test/
+122 silly gunzTarPerm modified mode [ 'test/', 493, 511 ]
+123 silly gunzTarPerm extractEntry test/format/
+124 silly gunzTarPerm modified mode [ 'test/format/', 493, 511 ]
+125 silly gunzTarPerm extractEntry test/format/index.js
+126 silly gunzTarPerm modified mode [ 'test/format/index.js', 420, 438 ]
+127 silly gunzTarPerm extractEntry test/format/src/
+128 silly gunzTarPerm modified mode [ 'test/format/src/', 493, 511 ]
+129 silly gunzTarPerm extractEntry test/format/src/test1.js
+130 silly gunzTarPerm modified mode [ 'test/format/src/test1.js', 420, 438 ]
+131 silly gunzTarPerm extractEntry test/format/src/test2.js
+132 silly gunzTarPerm modified mode [ 'test/format/src/test2.js', 420, 438 ]
+133 silly gunzTarPerm extractEntry test/index.js
+134 silly gunzTarPerm modified mode [ 'test/index.js', 420, 438 ]
+135 silly gunzTarPerm extractEntry test/interface.js
+136 silly gunzTarPerm modified mode [ 'test/interface.js', 420, 438 ]
+137 silly gunzTarPerm extractEntry test/src/
+138 silly gunzTarPerm modified mode [ 'test/src/', 493, 511 ]
+139 silly gunzTarPerm extractEntry test/src/coverage.js
+140 silly gunzTarPerm modified mode [ 'test/src/coverage.js', 420, 438 ]
+141 silly gunzTarPerm extractEntry test/test.js
+142 silly gunzTarPerm modified mode [ 'test/test.js', 420, 438 ]
+143 silly gunzTarPerm extractEntry utils/
+144 silly gunzTarPerm modified mode [ 'utils/', 493, 511 ]
+145 silly gunzTarPerm extractEntry utils/console.js
+146 silly gunzTarPerm modified mode [ 'utils/console.js', 420, 438 ]
+147 verbose read json /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package/package.json
+148 silly lockFile 4da8dcdb-6916-0-18062561703845859-package /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package
+149 verbose from cache /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package/package.json
+150 verbose tar pack [ '/Users/dfoster/.npm/cover/0.2.8/package.tgz',
+150 verbose tar pack   '/var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package' ]
+151 verbose tarball /Users/dfoster/.npm/cover/0.2.8/package.tgz
+152 verbose folder /var/folders/cl/85qmmf510xl7hh63wlvssm5dkd0pyk/T/npm-42764/1348262166916-0.18062561703845859/package
+153 silly lockFile 8180fd9c-ster-npm-cover-0-2-8-package-tgz /Users/dfoster/.npm/cover/0.2.8/package.tgz
+154 verbose lock /Users/dfoster/.npm/cover/0.2.8/package.tgz /Users/dfoster/.npm/8180fd9c-ster-npm-cover-0-2-8-package-tgz.lock
+155 silly lockFile 8180fd9c-ster-npm-cover-0-2-8-package-tgz /Users/dfoster/.npm/cover/0.2.8/package.tgz
+156 silly lockFile fc2d6e24--dfoster-npm-cover-0-2-8-package /Users/dfoster/.npm/cover/0.2.8/package
+157 verbose lock /Users/dfoster/.npm/cover/0.2.8/package /Users/dfoster/.npm/fc2d6e24--dfoster-npm-cover-0-2-8-package.lock
+158 silly lockFile fc2d6e24--dfoster-npm-cover-0-2-8-package /Users/dfoster/.npm/cover/0.2.8/package
+159 verbose tar unpack /Users/dfoster/.npm/cover/0.2.8/package.tgz
+160 silly lockFile fc2d6e24--dfoster-npm-cover-0-2-8-package /Users/dfoster/.npm/cover/0.2.8/package
+161 verbose lock /Users/dfoster/.npm/cover/0.2.8/package /Users/dfoster/.npm/fc2d6e24--dfoster-npm-cover-0-2-8-package.lock
+162 silly gunzTarPerm modes [ '777', '666' ]
+163 silly gunzTarPerm extractEntry package.json
+164 silly gunzTarPerm extractEntry .npmignore
+165 silly gunzTarPerm extractEntry bar.js
+166 silly gunzTarPerm extractEntry coverage_store.js
+167 silly gunzTarPerm extractEntry foo.js
+168 silly gunzTarPerm extractEntry index.js
+169 silly gunzTarPerm extractEntry instrument.js
+170 silly gunzTarPerm extractEntry contrib/colors.js
+171 silly gunzTarPerm extractEntry contrib/commander.js
+172 silly gunzTarPerm extractEntry contrib/escodegen.js
+173 silly gunzTarPerm extractEntry contrib/esprima.js
+174 silly gunzTarPerm extractEntry contrib/cli-table/README.md
+175 silly gunzTarPerm extractEntry contrib/cli-table/index.js
+176 silly gunzTarPerm extractEntry contrib/cli-table/lib/cli-table/index.js
+177 silly gunzTarPerm extractEntry contrib/cli-table/lib/cli-table/utils.js
+178 silly gunzTarPerm extractEntry bin/.coverrc
+179 silly gunzTarPerm extractEntry bin/cover
+180 silly gunzTarPerm extractEntry README.markdown
+181 silly gunzTarPerm extractEntry reporters/cli.js
+182 silly gunzTarPerm extractEntry reporters/html.js
+183 silly gunzTarPerm extractEntry reporters/json.js
+184 silly gunzTarPerm extractEntry reporters/plain.js
+185 silly gunzTarPerm extractEntry resources/jquery.min.js
+186 silly gunzTarPerm extractEntry resources/jquery.tablesorter.min.js
+187 silly gunzTarPerm extractEntry resources/prettify.js
+188 silly gunzTarPerm extractEntry resources/bootstrap.css
+189 silly gunzTarPerm extractEntry resources/prettify.css
+190 silly gunzTarPerm extractEntry templates/instrumentation_header.js
+191 silly gunzTarPerm extractEntry templates/file.html
+192 silly gunzTarPerm extractEntry templates/index.html
+193 silly gunzTarPerm extractEntry test/index.js
+194 silly gunzTarPerm extractEntry test/interface.js
+195 silly gunzTarPerm extractEntry test/test.js
+196 silly gunzTarPerm extractEntry test/format/index.js
+197 silly gunzTarPerm extractEntry test/format/src/test1.js
+198 silly gunzTarPerm extractEntry test/format/src/test2.js
+199 silly gunzTarPerm extractEntry test/src/coverage.js
+200 silly gunzTarPerm extractEntry utils/console.js
+201 verbose read json /Users/dfoster/.npm/cover/0.2.8/package/package.json
+202 silly lockFile fc2d6e24--dfoster-npm-cover-0-2-8-package /Users/dfoster/.npm/cover/0.2.8/package
+203 silly shasum updated bytes 40960
+204 silly shasum updated bytes 40960
+205 silly shasum updated bytes 34182
+206 info shasum 47ddf64ad2921768be35455cc5d0ca99e5a81600
+206 info shasum /Users/dfoster/.npm/cover/0.2.8/package.tgz
+207 verbose from cache /Users/dfoster/.npm/cover/0.2.8/package/package.json
+208 verbose chmod /Users/dfoster/.npm/cover/0.2.8/package.tgz 666
+209 verbose chown /Users/dfoster/.npm/cover/0.2.8/package.tgz [ 1691376594, 1064778472 ]
+210 silly lockFile 292f6449--npmjs-org-cover-cover-0-2-8-tgz https://registry.npmjs.org/cover/-/cover-0.2.8.tgz
+211 silly lockFile 13328808-cover-0-2-8 cover@0.2.8
+212 silly lockFile 952b803a-cover cover@
+213 silly resolved [ { name: 'cover',
+213 silly resolved     version: '0.2.8',
+213 silly resolved     description: 'Native JavaScript code coverage',
+213 silly resolved     main: 'index.js',
+213 silly resolved     directories: { bin: 'bin', lib: '.', test: 'test' },
+213 silly resolved     dependencies:
+213 silly resolved      { 'cli-table': '0.0.x',
+213 silly resolved        underscore: '1.2.x',
+213 silly resolved        'underscore.string': '2.0.x',
+213 silly resolved        which: '1.0.x' },
+213 silly resolved     repository: { type: 'git', url: 'http://github.com/itay/node-cover.git' },
+213 silly resolved     keywords: [ 'code', 'coverage', 'esprima', 'cover', 'test' ],
+213 silly resolved     author:
+213 silly resolved      { name: 'Itay Neeman',
+213 silly resolved        email: 'itay@neeman.net',
+213 silly resolved        url: 'http://www.pretzelwisdom.com' },
+213 silly resolved     license: 'MIT/X11',
+213 silly resolved     engine: { node: '>=0.6' },
+213 silly resolved     preferGlobal: 'true',
+213 silly resolved     bin: { cover: 'bin/cover' },
+213 silly resolved     readme: '## Cover - Native JavaScript Code Coverage\n\nCover gives you the ability to collect code-coverage for your projects, using\nwhatever unit test framework you want, and all using native JavaScript. It also\ncomes bundled with pre-defined reporters, such as HTML and CLI output, so you\ncan easily see where you are missing coverage.\n\n### Standing on the shoulders of giants\n\nI would be amiss to not mention that the hard work in this library was\nby [Chris Dickinson] with his work on [runforcover]. In reality, Cover is \na fork of runforcover, fixing some of the issues and making it more usable.\n\nThe original version of Cover used [substack]\'s excellent [bunker] library,\nbut it has recently been moved to using [esprima] and a new code homegrown\ninstrumentation library.\n\n### Known Issues\n\nThere are currently a few known issues that I am working on:\n\n1. If you use \'global\' to pass state between modules (mocha does this, for\nexample), then you might run into issues. Cover runs modules as if they\nwere executed with `NODE_MODULE_CONTEXTS` was set.\n\n2. If you start new node processes, Cover won\'t work with those, as\nit instruments by hooking into `require`.\n\n### Usage\n\nUsing Cover is simple. Simply install it globally:\n\n> npm install cover -g\n\nAnd then, run it\n\n> cover run mytests.js\n\nWant to pass some arguments to your test? No problem (note the `--`):\n\n> cover run mytests.js -- --arg1 --arg2=foo\n\n Once you\'ve run your tests, it will create a directory with coverage data in it.\n If you want to see the coverage report, simply run:\n \n > cover report\n \n which will output the report to the CLI. Want to get an HTML report?\n \n > cover report html\n \n This will create a `cover_html` directory with the coverage information.\n \n### Configuration\n\nCover reads from a `.coverrc` file in your project directory, and it comes\nwith sensible defaults. Here are the defaults that it uses:\n\n    {\n        "formatter": "cli",\n        "ignore": ".coverignore",\n        \n        "prefix": "coveragefile_",              // Prefix for coverage data files\n        "dataDirectory": ".coverage_data",      // Directory to put coverage files in\n        \n        "debugDirectory": ".coverage_debug",    // Directory to put instrumented files in\n        \n        "modules": false,                       // Whether or not to cover node_modules directory\n        \n        // Formatter-specific info\n        "html" : {\n            "directory": "cover_html",          // Directory to write HTML files too\n            "generateIndex": true               // Whether to generate an index.html file\n        },\n        \n        "json": {\n        }\n    }\n    \nYou can also specify which files to ignore using .coverignore. Here is the one used\nfor Cover itself:\n\n    node_modules\n    \nYou can specify both files and directories in the `.coverignore` file.\n\nIf you have a customer path for your configuration files, you can specify this\non the command line:\n\n> cover --config path/to/config --ignore path/to/ignore run myfile.js\n\n[esprima]: http://www.esprima.org\n[substack]: https://github.com/substack\n[bunker]: https://github.com/substack/node-bunker\n[Chris Dickinson]: https://github.com/chrisdickinson\n[runforcover]: https://github.com/chrisdickinson/node-runforcover',
+213 silly resolved     _id: 'cover@0.2.8',
+213 silly resolved     dist: { shasum: '47ddf64ad2921768be35455cc5d0ca99e5a81600' },
+213 silly resolved     _from: 'cover' } ]
+214 info install cover@0.2.8 into /usr/local/lib
+215 info installOne cover@0.2.8
+216 verbose from cache /Users/dfoster/.npm/cover/0.2.8/package/package.json
+217 info /usr/local/lib/node_modules/cover unbuild
+218 verbose read json /usr/local/lib/node_modules/cover/package.json
+219 verbose tar unpack /Users/dfoster/.npm/cover/0.2.8/package.tgz
+220 silly lockFile 867f5045-usr-local-lib-node-modules-cover /usr/local/lib/node_modules/cover
+221 verbose lock /usr/local/lib/node_modules/cover /Users/dfoster/.npm/867f5045-usr-local-lib-node-modules-cover.lock
+222 silly gunzTarPerm modes [ '777', '666' ]
+223 error Error: EACCES, mkdir '/usr/local/lib/node_modules/cover'
+223 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/cover']
+223 error   errno: 3,
+223 error   code: 'EACCES',
+223 error   path: '/usr/local/lib/node_modules/cover',
+223 error   fstream_type: 'Directory',
+223 error   fstream_path: '/usr/local/lib/node_modules/cover',
+223 error   fstream_class: 'DirWriter',
+223 error   fstream_stack:
+223 error    [ 'DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)',
+223 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53',
+223 error      'Object.oncomplete (fs.js:297:15)' ] }
+224 error Please try running this command again as root/Administrator.
+225 error System Darwin 11.4.0
+226 error command "node" "/usr/local/bin/npm" "install" "-g" "cover"
+227 error cwd /Users/dfoster/dev/splunk-flurry
+228 error node -v v0.8.8
+229 error npm -v 1.1.59
+230 error path /usr/local/lib/node_modules/cover
+231 error fstream_path /usr/local/lib/node_modules/cover
+232 error fstream_type Directory
+233 error fstream_class DirWriter
+234 error code EACCES
+235 error errno 3
+236 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/cover'
+237 error fstream_stack DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)
+237 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53
+237 error fstream_stack Object.oncomplete (fs.js:297:15)
+238 verbose exit [ 3, true ]

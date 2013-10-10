@@ -4,7 +4,8 @@
 To start indexing Flurry event logs:<br/>
 <strong>
 1. Provide Flurry credentials below.<br/>
-2. For the "Extraction Position", enter the earliest date containing events you wish to download.
+2. For the "Extraction Position", enter the earliest date containing events you
+   wish to download.<br/>
 3. Enable the Flurry scripted input below.<br/>
 </strong>
         ]]></text>
