@@ -70,7 +70,7 @@ class FlurryConnection(object):
         
         resp_url = resp.geturl()
         success = (
-            resp_url == 'https://dev.flurry.com/home.do' or
+            resp_url.startswith('https://dev.flurry.com/home.do') or
             (resp_url.startswith('https://dev.flurry.com/fullPageTakeover.do')
                 and 'home.do' in resp_url))
         if not success:
