@@ -7,3 +7,7 @@
 
 # Splunk Packages
 *.spl
+
+# Splunk app local changes
+flurry/local
+flurry/metadata
