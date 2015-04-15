@@ -1,5 +1,9 @@
 # Splunk-Flurry Connector
 
+> **Currently broken**: Flurry has updated their private API again in a way that breaks this app. Please see <https://github.com/splunk/splunk-app-flurry/issues/5>
+
+> **Seeking new maintainer**: I no longer have the cycles to maintain this app myself, but I will review patches that are submitted against it.
+
 This app provides a scripted input for [Splunk](http://www.splunk.com/) that automatically extracts event logs from [Flurry](http://www.flurry.com/). It is tested on Splunk 4.3.2.
 
 This input permits the use of Splunk's advanced data analysis capabilities on Flurry data. This is particularly useful if your application logs custom events and you want to perform custom analyses on them.
